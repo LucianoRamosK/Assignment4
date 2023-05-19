@@ -1,1 +1,61 @@
-<p>home works!</p>
+<!-- Header -->
+<header>
+  <nav>
+    <ul>
+      <li><a routerLink="/">Home</a></li>
+      <li><a routerLink="/signup">Sign Up</a></li>
+      <li><a routerLink="/login">Log In</a></li>
+    </ul>
+  </nav>
+</header>
+<!-- Main -->
+<main>
+  <section>
+    <h2>Create a Post</h2>
+    <form (submit)="createPost()">
+      <label for="title">Title:</label>
+      <input
+        type="text"
+        id="title"
+        name="title"
+        [(ngModel)]="newPostTitle"
+        required
+      />
+
+      <label for="url">URL:</label>
+      <input type="url" id="url" name="url" [(ngModel)]="newPostUrl" required />
+
+      <button type="submit">Post</button>
+    </form>
+  </section>
+
+  <section>
+    <h2>Posts</h2>
+    <ul>
+      <li *ngFor="let post of posts | orderByVotes">
+        <h3>{{ post.title }}</h3>
+        <p>{{ post.url }}</p>
+
+        <button (click)="upvotePost(post)">Upvote</button>
+        <button (click)="showComments(post)">View Comments</button>
+
+        <div *ngIf="showCommentsForPost === post">
+          <form (submit)="addComment(post)">
+            <input type="text" [(ngModel)]="newComment" required />
+            <button type="submit">Add Comment</button>
+          </form>
+
+          <ul>
+            <li *ngFor="let comment of post.comments">
+              <p>{{ comment }}</p>
+            </li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2023 Luciano DIWE - Do It With Experts.</p>
+</footer>
