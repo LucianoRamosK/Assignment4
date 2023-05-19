@@ -9,24 +9,24 @@ export class HomeComponent {
   posts: any[] = []; //posts
 
   newPostTitle: string = ''; //Title
-  newPostUrl: string = ''; //Url
+  newPostQuestion: string = ''; //Question
   newComment: string = ''; //Comment
 
   createPost() {
     const newPost = {
       title: this.newPostTitle,
-      url: this.newPostUrl,
-      votes: 0,
+      url: this.newPostQuestion,
+      votes: 0, //votes counter
       comments: [],
     };
     this.posts.push(newPost);
 
     this.newPostTitle = ''; // Clear the input field after creating the post
-    this.newPostUrl = ''; // Clear the input field after creating the post
+    this.newPostQuestion = ''; // Clear the input field after creating the post
   }
 
   upvotePost(post: any) {
-    post.votes++;
+    post.votes++; //incremment the vote counter
   }
 
   showComments(post: any) {

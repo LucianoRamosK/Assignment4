@@ -1,10 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
+import { SignupComponent } from './signup/signup.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent }, // Add a route for the HomeComponent
-  { path: '', redirectTo: '/home', pathMatch: 'full' }, // Redirect the root URL to the home route
+  { path: '', redirectTo: '/home', pathMatch: 'full' }, // '' home route
+  { path: 'home', component: HomeComponent },
+  { path: 'signup', component: SignupComponent },
+  { path: 'login', component: LoginComponent },
 ];
 
 @NgModule({
