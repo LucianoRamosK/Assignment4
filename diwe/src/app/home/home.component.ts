@@ -15,7 +15,7 @@ export class HomeComponent {
   createPost() {
     const newPost = {
       title: this.newPostTitle,
-      Question: this.newPostQuestion,
+      question: this.newPostQuestion,
       votes: 0, //votes counter
       comments: [],
     };
@@ -35,6 +35,7 @@ export class HomeComponent {
 
   addComment(post: any) {
     console.log('Post object:', post);
+    console.log('newComment:', this.newComment);
     const newComment = this.newComment;
     post.comments.push(newComment);
     this.newComment = ''; // Clear the input field after adding the comment
