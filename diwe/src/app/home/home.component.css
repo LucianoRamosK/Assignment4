@@ -1,0 +1,60 @@
+/* Main section */
+main {
+  margin: 20px;
+}
+
+/* Form section */
+section {
+  margin-bottom: 30px;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+describe .col-form-label {
+  font-weight: bold;
+}
+
+.form-control {
+  width: 100%;
+}
+
+.btn-primary {
+  margin-top: 10px;
+}
+
+/* Posts section */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+button {
+  margin-right: 10px;
+}
+
+form {
+  margin-bottom: 10px;
+}
+
+input[type='text'] {
+  width: 100%;
+}
+
+ul ul {
+  margin-left: 20px;
+}

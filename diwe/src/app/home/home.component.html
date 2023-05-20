@@ -2,26 +2,35 @@
 <main>
   <section>
     <h2>Create a Post</h2>
-    <form (submit)="createPost()">
-      <label for="title">Title:</label>
-      <input
-        type="text"
-        id="title"
-        name="title"
-        [(ngModel)]="newPostTitle"
-        required
-      />
+    <form (submit)="createPost()" class="form">
+      <div class="form-group row">
+        <label for="title" class="col-form-label col-md-2">Title:</label>
+        <div class="col-md-10">
+          <input
+            type="text"
+            id="title"
+            name="title"
+            [(ngModel)]="newPostTitle"
+            required
+            class="form-control"
+          />
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="question" class="col-form-label col-md-2">Question:</label>
+        <div class="col-md-10">
+          <input
+            type="text"
+            id="question"
+            name="question"
+            [(ngModel)]="newPostQuestion"
+            required
+            class="form-control"
+          />
+        </div>
+      </div>
 
-      <label for="question">Question:</label>
-      <input
-        type="question"
-        id="question"
-        name="uquestionrl"
-        [(ngModel)]="newPostQuestion"
-        required
-      />
-
-      <button type="submit">Post</button>
+      <button type="submit" class="btn btn-primary">Post</button>
     </form>
   </section>
 
@@ -32,16 +41,25 @@
         <h3>{{ post.title }}</h3>
         <p>{{ post.url }}</p>
 
-        <button (click)="upvotePost(post)">Upvote</button>
-        <button (click)="showComments(post)">View Comments</button>
+        <button (click)="upvotePost(post)" class="btn btn-secondary">
+          Upvote
+        </button>
+        <button (click)="showComments(post)" class="btn btn-secondary">
+          View Comments
+        </button>
 
         <div *ngIf="showCommentsForPost === post">
-          <form (submit)="addComment(post)">
-            <input type="text" [(ngModel)]="newComment" required />
-            <button type="submit">Add Comment</button>
+          <form (submit)="addComment(post)" class="mb-2">
+            <input
+              type="text"
+              [(ngModel)]="newComment"
+              required
+              class="form-control"
+            />
+            <button type="submit" class="btn btn-primary">Add Comment</button>
           </form>
 
-          <ul>
+          <ul class="list-unstyled">
             <li *ngFor="let comment of post.comments">
               <p>{{ comment }}</p>
             </li>

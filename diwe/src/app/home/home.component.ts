@@ -6,16 +6,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
-  posts: any[] = []; //posts
+  posts: any[] = []; //posts change for db later
 
   newPostTitle: string = ''; //Title
-  newPostQuestion: string = ''; //Question
+  newPostQuestion: string = ''; //Question body
   newComment: string = ''; //Comment
 
   createPost() {
     const newPost = {
       title: this.newPostTitle,
-      url: this.newPostQuestion,
+      Question: this.newPostQuestion,
       votes: 0, //votes counter
       comments: [],
     };
@@ -34,6 +34,7 @@ export class HomeComponent {
   }
 
   addComment(post: any) {
+    console.log('Post object:', post);
     const newComment = this.newComment;
     post.comments.push(newComment);
     this.newComment = ''; // Clear the input field after adding the comment
