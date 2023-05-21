@@ -7,8 +7,7 @@ const app = express();
 const port = 3000;
 
 const connectionURL =
-  'mongodb+srv://lucianoramoskiyota:20%2F09%2F1994@cluster0.8tagpym.mongodb.net/angular?retryWrites=true&w=majority'; // Replace with your MongoDB connection URL
-
+  'mongodb+srv://lucianoramoskiyota:20%2F09%2F1994@cluster0.8tagpym.mongodb.net/?retryWrites=true&w=majority';
 // Define the user schema
 const userSchema = new mongoose.Schema({
   email: String,
@@ -19,7 +18,7 @@ const userSchema = new mongoose.Schema({
 const User = mongoose.model('User', userSchema);
 
 mongoose
-  .connect(connectionURL, { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(connectionURL)
   .then(() => {
     console.log('Connected to MongoDB');
   })
