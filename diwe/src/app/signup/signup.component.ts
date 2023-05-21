@@ -15,6 +15,7 @@ export class SignupComponent {
   signUp(): void {
     const signUpData = { email: this.email, password: this.password };
     this.http.post('/api/signup', signUpData).subscribe(
+      // this will create a http request to be handled by the backend
       (response) => {},
       (error) => {}
     );
