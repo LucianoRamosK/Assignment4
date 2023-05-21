@@ -16,7 +16,7 @@ export class SignupComponent {
     const signUpData = { email: this.email, password: this.password };
     this.http
       .post(
-        'https://nodek7tb9v-qw0m--4200--9c8944bc.local-credentialless.webcontainer.io/api/signup:3000',
+        'https://nodek7tb9v-qw0m--3000--9c8944bc.local-credentialless.webcontainer.io/api/signup',
         signUpData
       )
       .subscribe(

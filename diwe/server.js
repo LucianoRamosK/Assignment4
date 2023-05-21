@@ -1,12 +1,10 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
+const bodyParser = require('body-parser');
 
 const app = express();
-
 const port = 3000;
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
 
 const connectionURL =
   'mongodb+srv://lucianoramoskiyota:20%2F09%2F1994@cluster0.8tagpym.mongodb.net/angular?retryWrites=true&w=majority'; // Replace with your MongoDB connection URL
@@ -29,6 +27,12 @@ mongoose
     console.error('Error connecting to MongoDB:', error);
   });
 
+// Parse incoming requests with JSON payloads
+app.use(bodyParser.json());
+
+// Enable CORS
+app.use(cors());
+
 // Route for /api/signup - Post
 app.post('/api/signup', (req, res) => {
   const { email, password } = req.body;
@@ -40,17 +44,18 @@ app.post('/api/signup', (req, res) => {
   });
 
   // Save the user to the database
-  newUser.save((err) => {
-    if (err) {
+  newUser
+    .save()
+    .then(() => {
+      res.send('User signed up successfully');
+    })
+    .catch((err) => {
       console.error(err);
       res.status(500).send('Error saving user');
-    } else {
-      res.send('User signed up successfully');
-    }
-  });
+    });
 });
 
 // Start the server
-app.listen(3000, () => {
-  console.log('Server is running on port 3000');
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });
