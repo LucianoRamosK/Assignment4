@@ -2,20 +2,18 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-
+const User = require('./user');
 const app = express();
 const port = 3000;
 
+// Parse incoming requests with JSON payloads
+app.use(bodyParser.json());
+
+// Enable CORS
+app.use(cors());
+
 const connectionURL =
   'mongodb+srv://lucianoramoskiyota:20%2F09%2F1994@cluster0.8tagpym.mongodb.net/?retryWrites=true&w=majority';
-// Define the user schema
-const userSchema = new mongoose.Schema({
-  email: String,
-  password: String,
-});
-
-// Create a user model
-const User = mongoose.model('User', userSchema);
 
 mongoose
   .connect(connectionURL)
@@ -25,12 +23,6 @@ mongoose
   .catch((error) => {
     console.error('Error connecting to MongoDB:', error);
   });
-
-// Parse incoming requests with JSON payloads
-app.use(bodyParser.json());
-
-// Enable CORS
-app.use(cors());
 
 // Route for /api/signup - Post
 app.post('/api/signup', (req, res) => {
@@ -54,7 +46,6 @@ app.post('/api/signup', (req, res) => {
       res.status(500).send('Error saving user');
     });
 });
-
 // Start the server
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
