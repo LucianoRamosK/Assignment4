@@ -16,7 +16,11 @@ const connectionURL =
   'mongodb+srv://lucianoramoskiyota:20%2F09%2F1994@cluster0.8tagpym.mongodb.net/?retryWrites=true&w=majority';
 
 mongoose
-  .connect(connectionURL)
+  .connect(connectionURL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    serverSelectionTimeoutMS: 5000,
+  })
   .then(() => {
     console.log('Connected to MongoDB');
   })
