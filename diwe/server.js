@@ -18,3 +18,32 @@ mongoose
   .catch((error) => {
     console.error('Error connecting to MongoDB:', error);
   });
+
+// Create a user model
+const User = mongoose.model('users', userSchema); // Import the User model and sending to users collection
+
+//  Route for /api/signup - Post
+app.post('/api/signup', (req, res) => {
+  const { email, password } = req.body;
+
+  // Create a new user
+  const newUser = new User({
+    email: req.body.email,
+    password: req.body.password,
+  });
+
+  // Save the user to the database
+  newUser.save((err) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send('Error saving user');
+    } else {
+      res.send('User signed up successfully');
+    }
+  });
+});
+
+// Start the server
+app.listen(3000, () => {
+  console.log('Server is running on port 3000');
+});
