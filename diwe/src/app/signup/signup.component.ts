@@ -14,9 +14,14 @@ export class SignupComponent {
 
   signUp(): void {
     const signUpData = { email: this.email, password: this.password };
-    this.http.post('localhost:3000/api/signup', signUpData).subscribe(
-      (response) => {},
-      (error) => {}
-    );
+    this.http
+      .post(
+        'https://nodek7tb9v-qw0m--4200--9c8944bc.local-credentialless.webcontainer.io/api/signup:3000',
+        signUpData
+      )
+      .subscribe(
+        (response) => {},
+        (error) => {}
+      );
   }
 }
