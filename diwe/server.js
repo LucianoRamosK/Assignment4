@@ -36,6 +36,7 @@ app.use(cors());
 // Route for /api/signup - Post
 app.post('/api/signup', (req, res) => {
   const { email, password } = req.body;
+  console.log('IAMHERE' + email + [password]);
 
   // Create a new user
   const newUser = new User({
