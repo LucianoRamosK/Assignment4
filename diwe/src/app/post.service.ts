@@ -84,18 +84,22 @@ export class PostService {
     ];
   }
 
+  // get all the posts to list at the home page
   getPosts() {
     return this.posts;
   }
 
+  // create post feature
   createPost(newPost: any) {
     this.posts.push(newPost);
   }
 
+  // add comment feature
   addComment(post: any, newComment: any) {
     post.comments.push(newComment);
   }
 
+  // updavote feature
   upvoteComment(comment: any) {
     comment.votes++;
   }
