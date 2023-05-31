@@ -1,5 +1,4 @@
 const express = require('express');
-const mongoose = require('mongoose');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const User = require('./user');
@@ -10,23 +9,10 @@ const port = 3000;
 app.use(bodyParser.json());
 
 // Enable CORS
+/*Cross-Origin Resource Sharing (CORS) is an HTTP-header based mechanism that allows a server to indicate any origins (domain, scheme, or port) other than its own from which a browser should permit loading resources.
+https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS */
+
 app.use(cors());
-
-const connectionURL =
-  'mongodb+srv://lucianoramoskiyota:20%2F09%2F1994@cluster0.8tagpym.mongodb.net/?retryWrites=true&w=majority';
-
-mongoose
-  .connect(connectionURL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    serverSelectionTimeoutMS: 5000,
-  })
-  .then(() => {
-    console.log('Connected to MongoDB');
-  })
-  .catch((error) => {
-    console.error('Error connecting to MongoDB:', error);
-  });
 
 // Route for /api/signup - Post
 app.post('/api/signup', (req, res) => {

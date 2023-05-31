@@ -14,9 +14,8 @@ export class SignupComponent {
 
   signUp(): void {
     const signUpData = { email: this.email, password: this.password };
-    this.http.post('http://localhost:3000/api/signup', signUpData).subscribe(
-      (response) => {},
-      (error) => {}
-    );
+
+
+    
   }
 }
