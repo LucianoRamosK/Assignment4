@@ -99,8 +99,10 @@ export class PostService {
     post.comments.push(newComment);
   }
 
-  // updavote feature
+  // update vote feature
   upvoteComment(comment: any) {
     comment.votes++;
   }
+
+  //search feature 
 }

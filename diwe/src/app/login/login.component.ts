@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-login',
@@ -10,17 +10,18 @@ export class LoginComponent {
   email: string = '';
   password: string = '';
 
-  constructor(private http: HttpClient) {}
+  constructor(private userService: UserService) {}
 
   login(): void {
-    const loginData = { email: this.email, password: this.password };
-    this.http.post('/api/login', loginData).subscribe(
-      (response) => {
-        // Handle login
-      },
-      (error) => {
-        // Handle error
-      }
-    );
+    const user = this.userService
+      .getUsers()
+      .find((u) => u.email === this.email && u.password === this.password);
+    if (user) {
+      // Handle successful login
+      console.log('Logged in:', user);
+    } else {
+      // Handle invalid credentials
+      console.log('Invalid credentials');
+    }
   }
 }
