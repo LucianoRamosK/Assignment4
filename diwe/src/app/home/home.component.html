@@ -1,52 +1,8 @@
 <!-- Main -->
 <main class="d-flex justify-content-center">
   <section class="container">
-    <h2>Create a Post</h2>
-    <form (submit)="createPost()" class="form">
-      <div class="form-group row">
-        <label for="title" class="col-form-label col-md-2">Title:</label>
-        <div class="col-md-10">
-          <input
-            type="text"
-            id="title"
-            name="title"
-            [(ngModel)]="newPostTitle"
-            required
-            class="form-control"
-          />
-        </div>
-      </div>
-      <div class="form-group row">
-        <label for="question" class="col-form-label col-md-2">Question:</label>
-        <div class="col-md-10">
-          <input
-            type="text"
-            id="question"
-            name="question"
-            [(ngModel)]="newPostQuestion"
-            required
-            class="form-control"
-          />
-        </div>
-      </div>
-      <button type="submit" class="btn btn-primary">Post</button>
-    </form>
-  </section>
-  <section class="container">
     <form (submit)="search()" class="form search-form">
-      <div class="form-group row">
-        <label for="searchQuery" class="col-form-label col-md-2">Search:</label>
-        <div class="col-md-10">
-          <input
-            type="text"
-            id="searchQuery"
-            name="searchQuery"
-            [(ngModel)]="searchQuery"
-            class="form-control search-input"
-          />
-        </div>
-      </div>
-      <button type="submit" class="btn btn-primary">Search</button>
+      <!-- Search form content -->
     </form>
     <h2>Posts</h2>
     <ul class="post-list">
@@ -84,16 +40,20 @@
             </li>
           </ul>
           <form (submit)="addComment(post)" class="mb-2 comment-form">
-            <input
-              type="text"
-              id="comment"
-              name="newComment"
-              [(ngModel)]="newComment"
-              required
-              class="form-control"
-            />
-            <button type="submit" class="btn btn-primary">Add Comment</button>
+            <!-- Comment form content -->
           </form>
+          <div class="card-footer">
+            <button (click)="showComments(post)" class="btn btn-secondary">
+              Hide Comments
+            </button>
+          </div>
+        </div>
+        <div *ngIf="showCommentsForPost !== post" class="card-body">
+          <div class="card-footer">
+            <button (click)="showComments(post)" class="btn btn-secondary">
+              View Comments
+            </button>
+          </div>
         </div>
       </li>
     </ul>

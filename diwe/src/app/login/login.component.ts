@@ -10,8 +10,15 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   email: string = '';
   password: string = '';
+  currentUser: any;
 
   constructor(private userService: UserService, private router: Router) {}
+
+  ngOnInit() {
+    this.userService.currentUser$.subscribe((user) => {
+      this.currentUser = user;
+    });
+  }
 
   login(): void {
     const loggedIn = this.userService.login(this.email, this.password);

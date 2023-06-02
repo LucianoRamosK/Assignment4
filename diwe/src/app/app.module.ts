@@ -9,8 +9,9 @@ import { HomeComponent } from './home/home.component';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http'; // Import HttpClientModule
-import { AuthGuard } from './auth.guard';
-import { LogoutComponent } from './logout/logout.component'; //using auth guard to simulate authentication on the front end as stackblitz is limiting our back end capabilities (database,authentication ...)
+import { AuthGuard } from './auth.guard';//using auth guard to simulate authentication on the front end as stackblitz is limiting our back end capabilities (database,authentication ...)
+import { LogoutComponent } from './logout/logout.component';
+import { AskComponent } from './ask/ask.component'; 
 
 // Import the functions you need from the SDKs you need
 // import { initializeApp } from 'firebase/app';
@@ -42,6 +43,7 @@ import { LogoutComponent } from './logout/logout.component'; //using auth guard 
     SignupComponent,
     LoginComponent,
     LogoutComponent,
+    AskComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [AuthGuard],
