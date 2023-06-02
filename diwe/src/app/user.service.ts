@@ -76,7 +76,6 @@ export class UserService {
       password: 'password',
       role: 'general',
     },
-    // Add more mock user data as needed
   ];
 
   private currentUserSubject: BehaviorSubject<any> = new BehaviorSubject<any>(

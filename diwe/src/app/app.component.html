@@ -9,7 +9,11 @@
         <a class="nav-link" routerLink="/ask" routerLinkActive="active">Ask</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/signup" routerLinkActive="active"
+        <a
+          class="nav-link"
+          routerLink="/signup"
+          routerLinkActive="active"
+          *ngIf="!currentUser"
           >Sign Up</a
         >
       </li>

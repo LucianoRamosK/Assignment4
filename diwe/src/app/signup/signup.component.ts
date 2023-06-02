@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-signup',
@@ -7,15 +7,25 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./signup.component.css'],
 })
 export class SignupComponent {
-  email: string = ''; // Initialize email with an empty string
-  password: string = ''; // Initialize password with an empty string
+  name: string = '';
+  email: string = '';
+  password: string = '';
 
-  constructor(private http: HttpClient) {}
+  constructor(private userService: UserService) {}
 
   signUp(): void {
-    const signUpData = { email: this.email, password: this.password };
-
-
-    
+    const signUpData = {
+      name: this.name,
+      email: this.email,
+      password: this.password,
+    };
+    const newUser = this.userService.createUser(signUpData);
+    if (newUser) {
+      // Handle successful user creation
+      console.log('User created:', newUser);
+    } else {
+      // Handle user creation error
+      console.log('Failed to create user');
+    }
   }
 }
