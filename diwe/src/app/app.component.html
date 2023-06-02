@@ -1,0 +1,41 @@
+<!-- Header -->
+<header class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar-nav">
+    <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/" routerLinkActive="active">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/signup" routerLinkActive="active"
+          >Sign Up</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          routerLink="/login"
+          routerLinkActive="active"
+          *ngIf="!currentUser"
+          >Log In</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          routerLink="/logout"
+          routerLinkActive="active"
+          *ngIf="currentUser"
+          >Logout</a
+        >
+      </li>
+    </ul>
+  </nav>
+</header>
+<!-- main -->
+<main>
+  <router-outlet></router-outlet>
+</main>
+<!-- footer -->
+<footer class="bg-light text-center">
+  <p class="m-0">&copy; 2023 Luciano DIWE - Do It With Experts.</p>
+</footer>

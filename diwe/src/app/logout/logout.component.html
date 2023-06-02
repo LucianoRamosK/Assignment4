@@ -1,0 +1,16 @@
+<!-- Main -->
+<main>
+  <section class="container">
+    <div class="alert alert-info">
+      <p>
+        You are currently logged in as: <strong>{{ currentUser?.name }}</strong>
+      </p>
+    </div>
+    <div class="text-center">
+      <h2>Logout</h2>
+      <p>Are you sure you want to log out?</p>
+      <button (click)="logout()" class="btn btn-primary">Logout</button>
+    </div>
+  </section>
+</main>
+<!-- Main -->
